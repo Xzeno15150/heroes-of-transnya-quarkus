@@ -12,7 +12,7 @@ public class Character {
     private String name;
     private String element;
     private String imagePath;
-    private HealthPoint healthPoints;
+    private HealthPoint healthPoint;
     private List<SkillPartial> skills;
     private List<ItemPartial> items;
     private PartyPartial party;
@@ -20,21 +20,21 @@ public class Character {
     public Character() {
     }
 
-    public Character(String name, String element, String imagePath, HealthPoint healthPoints, List<SkillPartial> skills, List<ItemPartial> items, PartyPartial party) {
+    public Character(String name, String element, String imagePath, HealthPoint healthPoint, List<SkillPartial> skills, List<ItemPartial> items, PartyPartial party) {
         this.name = name;
         this.element = element;
         this.imagePath = imagePath;
-        this.healthPoints = healthPoints;
+        this.healthPoint = healthPoint;
         this.skills = skills;
         this.items = items;
         this.party = party;
     }
-    public Character(String id, String name, String element, String imagePath, HealthPoint healthPoints, List<SkillPartial> skills, List<ItemPartial> items, PartyPartial party) {
+    public Character(String id, String name, String element, String imagePath, HealthPoint healthPoint, List<SkillPartial> skills, List<ItemPartial> items, PartyPartial party) {
         this.id = id;
         this.name = name;
         this.element = element;
         this.imagePath = imagePath;
-        this.healthPoints = healthPoints;
+        this.healthPoint = healthPoint;
         this.skills = skills;
         this.items = items;
         this.party = party;
@@ -47,55 +47,62 @@ public class Character {
         return name;
     }
 
-    public void setName(String name) {
+    public Character setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getElement() {
         return element;
     }
 
-    public void setElement(String element) {
+    public Character setElement(String element) {
         this.element = element;
+        return this;
     }
 
     public String getImagePath() {
         return imagePath;
     }
 
-    public void setImagePath(String imagePath) {
+    public Character setImagePath(String imagePath) {
         this.imagePath = imagePath;
+        return this;
     }
 
-    public HealthPoint getHealthPoints() {
-        return healthPoints;
+    public HealthPoint getHealthPoint() {
+        return healthPoint;
     }
 
-    public void setHealthPoints(HealthPoint healthPoints) {
-        this.healthPoints = healthPoints;
+    public Character setHealthPoint(HealthPoint healthPoint) {
+        this.healthPoint = healthPoint;
+        return this;
     }
 
     public List<SkillPartial> getSkills() {
         return skills;
     }
 
-    public void setSkills(List<SkillPartial> skills) {
+    public Character setSkills(List<SkillPartial> skills) {
         this.skills = skills;
+        return this;
     }
 
     public List<ItemPartial> getItems() {
         return items;
     }
 
-    public void setItems(List<ItemPartial> items) {
+    public Character setItems(List<ItemPartial> items) {
         this.items = items;
+        return this;
     }
 
     public PartyPartial getParty() {
         return party;
     }
 
-    public void setParty(PartyPartial party) {
+    public Character setParty(PartyPartial party) {
         this.party = party;
+        return this;
     }
 }

@@ -24,7 +24,8 @@ public class ItemPartial {
         return name;
     }
 
-    public void setName(String name) {
+    public ItemPartial setName(String name) {
         this.name = name;
+        return this;
     }
 }

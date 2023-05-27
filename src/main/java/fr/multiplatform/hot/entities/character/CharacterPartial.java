@@ -12,30 +12,6 @@ public class CharacterPartial {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getElement() {
-        return element;
-    }
-
-    public void setElement(String element) {
-        this.element = element;
-    }
-
-    public UserPartial getUser() {
-        return user;
-    }
-
-    public void setUser(UserPartial user) {
-        this.user = user;
-    }
-
     public CharacterPartial() {
     }
 
@@ -50,5 +26,32 @@ public class CharacterPartial {
         this.name = name;
         this.element = element;
         this.user = user;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public CharacterPartial setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public String getElement() {
+        return element;
+    }
+
+    public CharacterPartial setElement(String element) {
+        this.element = element;
+        return this;
+    }
+
+    public UserPartial getUser() {
+        return user;
+    }
+
+    public CharacterPartial setUser(UserPartial user) {
+        this.user = user;
+        return this;
     }
 }
