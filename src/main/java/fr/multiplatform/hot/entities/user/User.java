@@ -6,21 +6,14 @@ import fr.multiplatform.hot.entities.character.Character;
 import java.util.List;
 
 public class User {
-    private String id;
+    private String email;
     private String username;
     private String password;
     private List<Role> roles;
     private List<Character> characters;
 
-    public User(String id, String username, String password, List<Role> roles, List<Character> characters) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.roles = roles;
-        this.characters = characters;
-    }
-
-    public User(String username, String password, List<Role> roles, List<Character> characters) {
+    public User(String email, String username, String password, List<Role> roles, List<Character> characters) {
+        this.email = email;
         this.username = username;
         this.password = password;
         this.roles = roles;
@@ -30,8 +23,12 @@ public class User {
     public User() {
     }
 
-    public String getId() {
-        return id;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getUsername() {
