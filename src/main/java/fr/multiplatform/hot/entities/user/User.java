@@ -27,39 +27,44 @@ public class User {
         return email;
     }
 
-    public void setEmail(String email) {
+    public User setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
+    public User setUsername(String username) {
         this.username = username;
+        return this;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public User setPassword(String password) {
         this.password = password;
+        return this;
     }
 
     public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Role> roles) {
+    public User setRoles(List<Role> roles) {
         this.roles = roles;
+        return this;
     }
 
     public List<Character> getCharacters() {
         return characters;
     }
 
-    public void setCharacters(List<Character> characters) {
+    public User setCharacters(List<Character> characters) {
         this.characters = characters;
+        return this;
     }
 }

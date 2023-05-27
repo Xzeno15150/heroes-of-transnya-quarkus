@@ -24,7 +24,8 @@ public class PartyPartial {
         return name;
     }
 
-    public void setName(String name) {
+    public PartyPartial setName(String name) {
         this.name = name;
+        return this;
     }
 }

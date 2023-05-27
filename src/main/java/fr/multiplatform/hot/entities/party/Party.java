@@ -9,27 +9,6 @@ public class Party {
     private String id;
     private UserPartial owner;
     private List<CharacterPartial> characters;
-
-    public String getId() {
-        return id;
-    }
-
-    public UserPartial getOwner() {
-        return owner;
-    }
-
-    public void setOwner(UserPartial owner) {
-        this.owner = owner;
-    }
-
-    public List<CharacterPartial> getCharacters() {
-        return characters;
-    }
-
-    public void setCharacters(List<CharacterPartial> characters) {
-        this.characters = characters;
-    }
-
     public Party() {
     }
 
@@ -42,5 +21,27 @@ public class Party {
         this.id = id;
         this.owner = owner;
         this.characters = characters;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public UserPartial getOwner() {
+        return owner;
+    }
+
+    public Party setOwner(UserPartial owner) {
+        this.owner = owner;
+        return this;
+    }
+
+    public List<CharacterPartial> getCharacters() {
+        return characters;
+    }
+
+    public Party setCharacters(List<CharacterPartial> characters) {
+        this.characters = characters;
+        return this;
     }
 }

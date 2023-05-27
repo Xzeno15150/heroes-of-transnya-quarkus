@@ -9,19 +9,24 @@ public class Statistic {
         this.intelligence = intelligence;
     }
 
+    public Statistic() {
+    }
+
     public int getStrength() {
         return strength;
     }
 
-    public void setStrength(int strength) {
+    public Statistic setStrength(int strength) {
         this.strength = strength;
+        return this;
     }
 
     public int getIntelligence() {
         return intelligence;
     }
 
-    public void setIntelligence(int intelligence) {
+    public Statistic setIntelligence(int intelligence) {
         this.intelligence = intelligence;
+        return this;
     }
 }

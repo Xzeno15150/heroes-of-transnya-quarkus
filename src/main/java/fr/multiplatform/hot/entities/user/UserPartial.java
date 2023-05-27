@@ -16,15 +16,17 @@ public class UserPartial {
         return username;
     }
 
-    public void setUsername(String username) {
+    public UserPartial setUsername(String username) {
         this.username = username;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public UserPartial setEmail(String email) {
         this.email = email;
+        return this;
     }
 }

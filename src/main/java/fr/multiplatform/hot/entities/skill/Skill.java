@@ -19,32 +19,38 @@ public class Skill {
         this.imagePath = imagePath;
     }
 
+    public Skill() {
+    }
+
     public String getId() {
         return id;
-    }
-
-    public String getImagePath() {
-        return imagePath;
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public Skill setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public Skill setDescription(String description) {
         this.description = description;
+        return this;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public Skill setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+        return this;
     }
 }
 
