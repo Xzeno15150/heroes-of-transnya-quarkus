@@ -1,6 +1,5 @@
 package fr.multiplatform.hot.entities.character;
 
-import fr.multiplatform.hot.entities.item.Item;
 import fr.multiplatform.hot.entities.HealthPoint;
 import fr.multiplatform.hot.entities.item.ItemPartial;
 import fr.multiplatform.hot.entities.party.PartyPartial;
@@ -13,7 +12,33 @@ public class Character {
     private String name;
     private String element;
     private String imagePath;
+    private HealthPoint healthPoints;
+    private List<SkillPartial> skills;
+    private List<ItemPartial> items;
+    private PartyPartial party;
 
+    public Character() {
+    }
+
+    public Character(String name, String element, String imagePath, HealthPoint healthPoints, List<SkillPartial> skills, List<ItemPartial> items, PartyPartial party) {
+        this.name = name;
+        this.element = element;
+        this.imagePath = imagePath;
+        this.healthPoints = healthPoints;
+        this.skills = skills;
+        this.items = items;
+        this.party = party;
+    }
+    public Character(String id, String name, String element, String imagePath, HealthPoint healthPoints, List<SkillPartial> skills, List<ItemPartial> items, PartyPartial party) {
+        this.id = id;
+        this.name = name;
+        this.element = element;
+        this.imagePath = imagePath;
+        this.healthPoints = healthPoints;
+        this.skills = skills;
+        this.items = items;
+        this.party = party;
+    }
     public String getId() {
         return id;
     }
@@ -71,35 +96,6 @@ public class Character {
     }
 
     public void setParty(PartyPartial party) {
-        this.party = party;
-    }
-
-    public Character() {
-    }
-
-    public Character(String name, String element, String imagePath, HealthPoint healthPoints, List<SkillPartial> skills, List<ItemPartial> items, PartyPartial party) {
-        this.name = name;
-        this.element = element;
-        this.imagePath = imagePath;
-        this.healthPoints = healthPoints;
-        this.skills = skills;
-        this.items = items;
-        this.party = party;
-    }
-
-    private HealthPoint healthPoints;
-    private List<SkillPartial> skills;
-    private List<ItemPartial> items;
-    private PartyPartial party;
-
-    public Character(String id, String name, String element, String imagePath, HealthPoint healthPoints, List<SkillPartial> skills, List<ItemPartial> items, PartyPartial party) {
-        this.id = id;
-        this.name = name;
-        this.element = element;
-        this.imagePath = imagePath;
-        this.healthPoints = healthPoints;
-        this.skills = skills;
-        this.items = items;
         this.party = party;
     }
 }
