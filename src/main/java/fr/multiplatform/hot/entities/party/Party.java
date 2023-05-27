@@ -1,8 +1,6 @@
 package fr.multiplatform.hot.entities.party;
 
 import fr.multiplatform.hot.entities.character.CharacterPartial;
-import fr.multiplatform.hot.entities.user.User;
-import fr.multiplatform.hot.entities.character.Character;
 import fr.multiplatform.hot.entities.user.UserPartial;
 
 import java.util.List;
