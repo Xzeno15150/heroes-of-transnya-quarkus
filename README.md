@@ -4,6 +4,12 @@ This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
+## What is Heroes of Transnya
+
+Heroes of Transnya is a TableTop Roleplay Game aimed towards beginners, making character creating easier. 
+
+This repository contains the back end for a mobile app. It uses NoSQL and MongoDB to store the data, and Quarkus to give access to it. 
+
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
