@@ -3,7 +3,7 @@ package fr.multiplatform.hot.entities.item;
 public class ItemPartial {
     private String id;
     private String name;
-    private int nbOfItem = 1;
+    private int nbOfItems = 1;
 
     public ItemPartial(String id, String name) {
         this.id = id;
@@ -30,12 +30,12 @@ public class ItemPartial {
         return this;
     }
 
-    public int getNbOfItem() {
-        return nbOfItem;
+    public int getNbOfItems() {
+        return nbOfItems;
     }
 
-    public ItemPartial setNbOfItem(int nbOfItem) {
-        this.nbOfItem = nbOfItem;
+    public ItemPartial setNbOfItems(int nbOfItems) {
+        this.nbOfItems = nbOfItems;
         return this;
     }
 }
