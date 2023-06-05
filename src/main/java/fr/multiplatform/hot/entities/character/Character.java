@@ -16,6 +16,7 @@ public class Character {
     private List<SkillPartial> skills;
     private List<ItemPartial> items;
     private PartyPartial party;
+    private int level = 1;
 
     public Character() {
     }
@@ -103,6 +104,15 @@ public class Character {
 
     public Character setParty(PartyPartial party) {
         this.party = party;
+        return this;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public Character setLevel(int level) {
+        this.level = level;
         return this;
     }
 }

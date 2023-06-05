@@ -5,6 +5,7 @@ public class Item {
     private String name;
     private String description;
     private String imagePath;
+    private int nbOfItem = 1;
 
     public Item() {
     }
@@ -50,6 +51,15 @@ public class Item {
 
     public Item setImagePath(String imagePath) {
         this.imagePath = imagePath;
+        return this;
+    }
+
+    public int getNbOfItem() {
+        return nbOfItem;
+    }
+
+    public Item setNbOfItem(int nbOfItem) {
+        this.nbOfItem = nbOfItem;
         return this;
     }
 }

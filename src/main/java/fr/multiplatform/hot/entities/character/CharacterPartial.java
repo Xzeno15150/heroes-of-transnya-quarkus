@@ -7,6 +7,7 @@ public class CharacterPartial {
     private String name;
     private String element;
     private UserPartial user;
+    private int level = 1;
 
     public String getId() {
         return id;
@@ -52,6 +53,15 @@ public class CharacterPartial {
 
     public CharacterPartial setUser(UserPartial user) {
         this.user = user;
+        return this;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public CharacterPartial setLevel(int level) {
+        this.level = level;
         return this;
     }
 }
