@@ -1,7 +1,9 @@
 package fr.multiplatform.hot.entities.item;
 
+import org.bson.types.ObjectId;
+
 public class Item {
-    private String id;
+    private ObjectId id;
     private String name;
     private String description;
     private String imagePath;
@@ -15,14 +17,14 @@ public class Item {
         this.imagePath = imagePath;
     }
 
-    public Item(String id, String name, String description, String imagePath) {
+    public Item(ObjectId id, String name, String description, String imagePath) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.imagePath = imagePath;
     }
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 

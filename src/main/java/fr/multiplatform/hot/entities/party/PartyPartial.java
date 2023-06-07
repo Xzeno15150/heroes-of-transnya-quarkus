@@ -1,7 +1,9 @@
 package fr.multiplatform.hot.entities.party;
 
+import org.bson.types.ObjectId;
+
 public class PartyPartial {
-    private String id;
+    private ObjectId id;
     private String name;
 
     public PartyPartial() {
@@ -11,12 +13,12 @@ public class PartyPartial {
         this.name = name;
     }
 
-    public PartyPartial(String id, String name) {
+    public PartyPartial(ObjectId id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 

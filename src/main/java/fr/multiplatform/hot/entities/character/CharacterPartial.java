@@ -1,16 +1,16 @@
 package fr.multiplatform.hot.entities.character;
 
 import fr.multiplatform.hot.entities.user.UserPartial;
+import org.bson.types.ObjectId;
 
 public class CharacterPartial {
-    private String id;
+    private ObjectId id;
     private String name;
     private String element;
     private UserPartial user;
     private int level = 1;
 
-
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
@@ -23,7 +23,7 @@ public class CharacterPartial {
         this.user = user;
     }
 
-    public CharacterPartial(String id, String name, String element, UserPartial user) {
+    public CharacterPartial(ObjectId id, String name, String element, UserPartial user) {
         this.id = id;
         this.name = name;
         this.element = element;

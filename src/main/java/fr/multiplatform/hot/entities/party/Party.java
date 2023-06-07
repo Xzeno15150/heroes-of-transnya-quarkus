@@ -2,29 +2,24 @@ package fr.multiplatform.hot.entities.party;
 
 import fr.multiplatform.hot.entities.character.CharacterPartial;
 import fr.multiplatform.hot.entities.user.UserPartial;
+import org.bson.types.ObjectId;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Party {
-    private String id;
+    private ObjectId id;
+    private String name;
     private UserPartial owner;
-    private List<CharacterPartial> characters;
-    public Party() {
-    }
+    private List<CharacterPartial> characters = new ArrayList<>();
 
-    public Party(UserPartial owner, List<CharacterPartial> characters) {
-        this.owner = owner;
-        this.characters = characters;
-    }
-
-    public Party(String id, UserPartial owner, List<CharacterPartial> characters) {
-        this.id = id;
-        this.owner = owner;
-        this.characters = characters;
-    }
-
-    public String getId() {
+    public ObjectId getId() {
         return id;
+    }
+
+    public Party setId(ObjectId id) {
+        this.id = id;
+        return this;
     }
 
     public UserPartial getOwner() {
@@ -42,6 +37,15 @@ public class Party {
 
     public Party setCharacters(List<CharacterPartial> characters) {
         this.characters = characters;
+        return this;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Party setName(String name) {
+        this.name = name;
         return this;
     }
 }
