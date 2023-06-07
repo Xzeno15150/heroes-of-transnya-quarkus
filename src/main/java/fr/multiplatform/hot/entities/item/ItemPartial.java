@@ -5,6 +5,7 @@ public class ItemPartial {
     private String name;
     private int nbOfItems = 1;
 
+
     public ItemPartial(String id, String name) {
         this.id = id;
         this.name = name;
@@ -38,4 +39,5 @@ public class ItemPartial {
         this.nbOfItems = nbOfItems;
         return this;
     }
+
 }

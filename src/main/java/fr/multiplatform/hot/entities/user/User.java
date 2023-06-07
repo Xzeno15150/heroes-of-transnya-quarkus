@@ -10,14 +10,11 @@ public class User {
     private String username;
     private String password;
     private List<Role> roles;
-    private List<Character> characters;
-
-    public User(String email, String username, String password, List<Role> roles, List<Character> characters) {
+    public User(String email, String username, String password, List<Role> roles) {
         this.email = email;
         this.username = username;
         this.password = password;
         this.roles = roles;
-        this.characters = characters;
     }
 
     public User() {
@@ -56,15 +53,6 @@ public class User {
 
     public User setRoles(List<Role> roles) {
         this.roles = roles;
-        return this;
-    }
-
-    public List<Character> getCharacters() {
-        return characters;
-    }
-
-    public User setCharacters(List<Character> characters) {
-        this.characters = characters;
         return this;
     }
 }

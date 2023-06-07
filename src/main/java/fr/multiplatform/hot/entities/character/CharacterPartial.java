@@ -9,6 +9,7 @@ public class CharacterPartial {
     private UserPartial user;
     private int level = 1;
 
+
     public String getId() {
         return id;
     }
