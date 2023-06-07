@@ -6,6 +6,8 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
+import java.util.HashMap;
+
 @Path("/login")
 public class LoginController {
 
@@ -15,7 +17,9 @@ public class LoginController {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String getJwt(ConnectionUserDTO user){
-        return userJWTProvider.getUserJWT(user);
+    public HashMap<String, String> getJwt(ConnectionUserDTO user){
+        HashMap<String , String> json = new HashMap<>();
+        json.put("token", userJWTProvider.getUserJWT(user));
+        return json;
     }
 }
