@@ -56,4 +56,13 @@ public class CharacterPartial {
         this.user = user;
         return this;
     }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public CharacterPartial setLevel(int level) {
+        this.level = level;
+        return this;
+    }
 }
