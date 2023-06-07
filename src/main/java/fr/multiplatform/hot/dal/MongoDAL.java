@@ -16,7 +16,7 @@ public abstract class MongoDAL {
 	@Inject
 	private MongoClient mongoClient;
 
-	public MongoCollection<Document> getCollection(Class<?> clazz) {
-		return mongoClient.getDatabase(databaseName).getCollection(clazz.getName());
+	public <T> MongoCollection<T> getCollection(Class<T> clazz) {
+		return mongoClient.getDatabase(databaseName).getCollection(clazz.getName(), clazz);
 	}
 }

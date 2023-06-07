@@ -7,6 +7,8 @@ public class CharacterPartial {
     private String name;
     private String element;
     private UserPartial user;
+    private int level = 1;
+
 
     public String getId() {
         return id;

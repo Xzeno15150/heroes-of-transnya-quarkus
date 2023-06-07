@@ -10,7 +10,6 @@ public class User {
     private String username;
     private String password;
     private List<Role> roles;
-
     public User(String email, String username, String password, List<Role> roles) {
         this.email = email;
         this.username = username;
