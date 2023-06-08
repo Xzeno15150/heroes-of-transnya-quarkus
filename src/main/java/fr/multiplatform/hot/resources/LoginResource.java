@@ -9,7 +9,7 @@ import jakarta.ws.rs.core.MediaType;
 import java.util.HashMap;
 
 @Path("/login")
-public class LoginController {
+public class LoginResource {
 
     @Inject
     UserJWTProvider userJWTProvider;

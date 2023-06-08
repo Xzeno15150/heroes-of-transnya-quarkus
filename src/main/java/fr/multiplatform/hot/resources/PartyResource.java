@@ -5,6 +5,7 @@ import fr.multiplatform.hot.services.PartyService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import org.jboss.resteasy.reactive.RestHeader;
 
 import javax.print.attribute.standard.Media;
 import java.util.List;
@@ -17,14 +18,14 @@ public class PartyResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Party> getParties() {
+    public List<Party> getParties(@RestHeader("Authorization") String jwt) {
         return partyService.findAllOfUser("");
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Party createParty(Party party) {
+    public Party createParty(Party party, @RestHeader("Authorization") String jwt) {
         return party.setId(partyService.add(party.setId(null)));
     }
 
