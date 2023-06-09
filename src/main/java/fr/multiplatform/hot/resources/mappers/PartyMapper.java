@@ -21,6 +21,6 @@ public interface PartyMapper {
 	@Mapping(target = "id", expression = "java(party.getId() == null ? null : new org.bson.types.ObjectId(party.getId()))")
 	Party toEntity(@Nonnull PartyRequest party, @Context User user);
 
-	@Mapping(target = "id", expression = "java(party.getId() != null ? null : party.getId().toHexString())")
+	@Mapping(target = "id", expression = "java(party.getId() == null ? null : party.getId().toHexString())")
 	PartyResponse toResource(@Nonnull Party party);
 }

@@ -2,12 +2,14 @@ package fr.multiplatform.hot.entities.party;
 
 import fr.multiplatform.hot.entities.character.CharacterPartial;
 import fr.multiplatform.hot.entities.user.User;
+import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Party {
+    @BsonId
     private ObjectId id;
     private String name;
     private User owner;

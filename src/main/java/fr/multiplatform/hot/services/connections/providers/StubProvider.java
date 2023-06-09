@@ -48,7 +48,7 @@ public class StubProvider extends UserJWTProvider {
     public String getUserJWT(AuthRequest userDTO) {
             User user = getUser(userDTO);
             if (user == null) {
-                throw new UserNotFoundException("Mot de passe ou login invalid");
+                throw new UserNotFoundException();
             }
 
             List<String> roles = user.getRoles().stream()

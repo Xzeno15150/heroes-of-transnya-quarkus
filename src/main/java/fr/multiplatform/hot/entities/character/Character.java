@@ -5,11 +5,13 @@ import fr.multiplatform.hot.entities.item.ItemPartial;
 import fr.multiplatform.hot.entities.party.PartyPartial;
 import fr.multiplatform.hot.entities.skill.SkillPartial;
 import fr.multiplatform.hot.entities.user.User;
+import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
 
 import java.util.List;
 
 public class Character {
+    @BsonId
     private ObjectId id;
     private String name;
     private String element;

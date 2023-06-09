@@ -1,10 +1,11 @@
 package fr.multiplatform.hot.exceptions;
 
 
-import io.quarkus.security.UnauthorizedException;
+import jakarta.ws.rs.WebApplicationException;
+import jakarta.ws.rs.core.Response;
 
-public class UserNotFoundException extends UnauthorizedException {
-    public UserNotFoundException(String message) {
-        super(message);
+public class UserNotFoundException extends WebApplicationException {
+    public UserNotFoundException() {
+        super(Response.status(401).entity("User not found. \nInvalid password or login.").build());
     }
 }
