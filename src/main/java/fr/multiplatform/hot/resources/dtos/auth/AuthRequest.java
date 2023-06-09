@@ -1,6 +1,6 @@
-package fr.multiplatform.hot.resources.dtos;
+package fr.multiplatform.hot.resources.dtos.auth;
 
-public class ConnectionUserDTO {
+public class AuthRequest {
 
     private String email;
     private String password;
@@ -9,7 +9,7 @@ public class ConnectionUserDTO {
         return email;
     }
 
-    public ConnectionUserDTO setEmail(String email) {
+    public AuthRequest setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -18,7 +18,7 @@ public class ConnectionUserDTO {
         return password;
     }
 
-    public ConnectionUserDTO setPassword(String password) {
+    public AuthRequest setPassword(String password) {
         this.password = password;
         return this;
     }

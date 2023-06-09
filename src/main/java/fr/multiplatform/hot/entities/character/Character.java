@@ -4,6 +4,7 @@ import fr.multiplatform.hot.entities.HealthPoint;
 import fr.multiplatform.hot.entities.item.ItemPartial;
 import fr.multiplatform.hot.entities.party.PartyPartial;
 import fr.multiplatform.hot.entities.skill.SkillPartial;
+import fr.multiplatform.hot.entities.user.User;
 import org.bson.types.ObjectId;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class Character {
     private List<SkillPartial> skills;
     private List<ItemPartial> items;
     private PartyPartial party;
+    private User user;
     private int level = 1;
 
     public Character() {
@@ -114,6 +116,15 @@ public class Character {
 
     public Character setLevel(int level) {
         this.level = level;
+        return this;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Character setUser(User user) {
+        this.user = user;
         return this;
     }
 }

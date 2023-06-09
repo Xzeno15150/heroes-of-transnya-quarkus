@@ -1,7 +1,7 @@
 package fr.multiplatform.hot.entities.party;
 
 import fr.multiplatform.hot.entities.character.CharacterPartial;
-import fr.multiplatform.hot.entities.user.UserPartial;
+import fr.multiplatform.hot.entities.user.User;
 import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 public class Party {
     private ObjectId id;
     private String name;
-    private UserPartial owner;
+    private User owner;
     private List<CharacterPartial> characters = new ArrayList<>();
 
     public ObjectId getId() {
@@ -22,11 +22,11 @@ public class Party {
         return this;
     }
 
-    public UserPartial getOwner() {
+    public User getOwner() {
         return owner;
     }
 
-    public Party setOwner(UserPartial owner) {
+    public Party setOwner(User owner) {
         this.owner = owner;
         return this;
     }

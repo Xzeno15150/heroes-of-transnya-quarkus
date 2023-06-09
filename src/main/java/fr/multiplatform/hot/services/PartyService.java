@@ -2,6 +2,7 @@ package fr.multiplatform.hot.services;
 
 import fr.multiplatform.hot.dal.MongoDAL;
 import fr.multiplatform.hot.entities.party.Party;
+import fr.multiplatform.hot.entities.user.User;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.bson.types.ObjectId;
 
@@ -17,20 +18,7 @@ public class PartyService extends MongoDAL<Party> {
 		super(Party.class);
 	}
 
-	public List<Party> findAllOfUser(String userEmail) {
-		return getCollection().find(eq("owner.email", userEmail)).into(new ArrayList<>());
-	}
-
-	public ObjectId add(Party party) {
-		return getCollection()
-				.insertOne(party)
-				.getInsertedId()
-				.asObjectId()
-				.getValue();
-	}
-
-	public Party update(Party party) {
-		return getCollection()
-				.replaceOne();
+	public List<Party> findAllOfUser(User user) {
+		return getCollection().find(eq("owner.email", user.getEmail())).into(new ArrayList<>());
 	}
 }
