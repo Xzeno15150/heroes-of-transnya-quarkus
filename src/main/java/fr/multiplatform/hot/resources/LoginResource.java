@@ -1,25 +1,24 @@
 package fr.multiplatform.hot.resources;
 
-import fr.multiplatform.hot.resources.dtos.ConnectionUserDTO;
+import fr.multiplatform.hot.resources.dtos.auth.AuthRequest;
+import fr.multiplatform.hot.resources.dtos.auth.AuthResponse;
 import fr.multiplatform.hot.services.connections.UserJWTProvider;
+import jakarta.annotation.security.PermitAll;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
-import java.util.HashMap;
-
 @Path("/login")
-public class LoginController {
+public class LoginResource {
 
     @Inject
     UserJWTProvider userJWTProvider;
 
     @POST
+    @PermitAll
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public HashMap<String, String> getJwt(ConnectionUserDTO user){
-        HashMap<String , String> json = new HashMap<>();
-        json.put("token", userJWTProvider.getUserJWT(user));
-        return json;
+    public AuthResponse getJwt(AuthRequest user) {
+        return new AuthResponse().setToken(userJWTProvider.getUserJWT(user));
     }
 }

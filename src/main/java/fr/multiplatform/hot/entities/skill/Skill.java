@@ -1,7 +1,9 @@
 package fr.multiplatform.hot.entities.skill;
 
+import org.bson.types.ObjectId;
+
 public class Skill {
-    private String id;
+    private ObjectId id;
     private String name;
     private String description;
     private String imagePath;
@@ -12,7 +14,7 @@ public class Skill {
         this.imagePath = imagePath;
     }
 
-    public Skill(String id, String name, String description, String imagePath) {
+    public Skill(ObjectId id, String name, String description, String imagePath) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -22,7 +24,7 @@ public class Skill {
     public Skill() {
     }
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 

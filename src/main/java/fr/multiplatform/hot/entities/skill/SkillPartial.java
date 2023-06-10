@@ -1,10 +1,12 @@
 package fr.multiplatform.hot.entities.skill;
 
+import org.bson.types.ObjectId;
+
 public class SkillPartial {
-    private String id;
+    private ObjectId id;
     private String name;
 
-    public SkillPartial(String id, String name) {
+    public SkillPartial(ObjectId id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -16,7 +18,7 @@ public class SkillPartial {
     public SkillPartial() {
     }
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 

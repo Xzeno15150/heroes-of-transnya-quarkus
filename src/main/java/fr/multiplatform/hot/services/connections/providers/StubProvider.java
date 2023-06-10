@@ -1,22 +1,23 @@
 package fr.multiplatform.hot.services.connections.providers;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
 import fr.multiplatform.hot.entities.Role;
 import fr.multiplatform.hot.entities.user.User;
 import fr.multiplatform.hot.exceptions.UserNotFoundException;
-import fr.multiplatform.hot.resources.dtos.ConnectionUserDTO;
+import fr.multiplatform.hot.resources.dtos.auth.AuthRequest;
 import fr.multiplatform.hot.services.connections.UserJWTProvider;
-import jakarta.enterprise.context.ApplicationScoped;
+import io.smallrye.jwt.build.Jwt;
+import jakarta.enterprise.context.RequestScoped;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.microprofile.jwt.Claims;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@ApplicationScoped
+@RequestScoped
 public class StubProvider extends UserJWTProvider {
 
     @ConfigProperty(name="users.admin.email")
@@ -34,7 +35,7 @@ public class StubProvider extends UserJWTProvider {
     @ConfigProperty(name="users.user2.password")
     private String user2Password;
 
-    @ConfigProperty(name="jwt.issuer")
+    @ConfigProperty(name="mp.jwt.verify.issuer")
     private String issuer;
 
     @ConfigProperty(name = "jwt.secret")
@@ -44,7 +45,7 @@ public class StubProvider extends UserJWTProvider {
     private int jwtTTL;
 
     @Override
-    public String getUserJWT(ConnectionUserDTO userDTO) {
+    public String getUserJWT(AuthRequest userDTO) {
             User user = getUser(userDTO);
             if (user == null) {
                 throw new UserNotFoundException("Mot de passe ou login invalid");
@@ -57,7 +58,7 @@ public class StubProvider extends UserJWTProvider {
             return this.createToken(user.getEmail(), user.getUsername(), roles);
     }
 
-    private User getUser(ConnectionUserDTO userDTO) {
+    private User getUser(AuthRequest userDTO) {
         if (adminEmail.equals(userDTO.getEmail()) &&
             adminPassword.equals(userDTO.getPassword())){
             return getAdminUser();
@@ -74,7 +75,6 @@ public class StubProvider extends UserJWTProvider {
     private User getAdminUser() {
         return new User()
                 .setEmail(adminEmail)
-                .setPassword(adminPassword)
                 .setRoles(new ArrayList<>(List.of(Role.ROLE_ADMIN, Role.ROLE_USER)))
                 .setUsername("Admin");
     }
@@ -82,7 +82,6 @@ public class StubProvider extends UserJWTProvider {
     private User getUser1() {
         return new User()
                 .setEmail(user1Email)
-                .setPassword(user1Password)
                 .setRoles(new ArrayList<>(List.of(Role.ROLE_USER)))
                 .setUsername("Érina");
     }
@@ -90,20 +89,17 @@ public class StubProvider extends UserJWTProvider {
     private User getUser2(){
         return new User()
                 .setEmail(user2Email)
-                .setPassword(user2Password)
                 .setRoles(new ArrayList<>(List.of(Role.ROLE_USER)))
                 .setUsername("Neitah");
     }
     public String createToken(String email, String username, List<String> roles) {
-        Algorithm algorithm = Algorithm.HMAC256(jwtSecret);
         Instant now = Instant.now();
-        return JWT.create()
-                .withClaim("email", email)
-                .withClaim("username", username)
-                .withClaim("groups", roles)
-                .withIssuer(issuer)
-                .withIssuedAt(now)
-                .withExpiresAt(now.plus(jwtTTL, ChronoUnit.SECONDS))
-                .sign(algorithm);
+        return Jwt.issuer(issuer)
+                .upn(email)
+                .claim(Claims.preferred_username, username)
+                .groups(new HashSet<>(roles))
+                .issuedAt(now)
+                .expiresAt(now.plus(jwtTTL, ChronoUnit.SECONDS))
+                .sign();
     }
 }

@@ -1,12 +1,13 @@
 package fr.multiplatform.hot.entities.item;
 
+import org.bson.types.ObjectId;
+
 public class ItemPartial {
-    private String id;
+    private ObjectId id;
     private String name;
     private int nbOfItems = 1;
 
-
-    public ItemPartial(String id, String name) {
+    public ItemPartial(ObjectId id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -18,7 +19,7 @@ public class ItemPartial {
     public ItemPartial() {
     }
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
@@ -39,5 +40,4 @@ public class ItemPartial {
         this.nbOfItems = nbOfItems;
         return this;
     }
-
 }

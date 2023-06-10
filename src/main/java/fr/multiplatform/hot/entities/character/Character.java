@@ -4,11 +4,13 @@ import fr.multiplatform.hot.entities.HealthPoint;
 import fr.multiplatform.hot.entities.item.ItemPartial;
 import fr.multiplatform.hot.entities.party.PartyPartial;
 import fr.multiplatform.hot.entities.skill.SkillPartial;
+import fr.multiplatform.hot.entities.user.User;
+import org.bson.types.ObjectId;
 
 import java.util.List;
 
 public class Character {
-    private String id;
+    private ObjectId id;
     private String name;
     private String element;
     private String imagePath;
@@ -16,6 +18,7 @@ public class Character {
     private List<SkillPartial> skills;
     private List<ItemPartial> items;
     private PartyPartial party;
+    private User user;
     private int level = 1;
 
     public Character() {
@@ -30,7 +33,7 @@ public class Character {
         this.items = items;
         this.party = party;
     }
-    public Character(String id, String name, String element, String imagePath, HealthPoint healthPoint, List<SkillPartial> skills, List<ItemPartial> items, PartyPartial party) {
+    public Character(ObjectId id, String name, String element, String imagePath, HealthPoint healthPoint, List<SkillPartial> skills, List<ItemPartial> items, PartyPartial party) {
         this.id = id;
         this.name = name;
         this.element = element;
@@ -40,7 +43,7 @@ public class Character {
         this.items = items;
         this.party = party;
     }
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
@@ -113,6 +116,15 @@ public class Character {
 
     public Character setLevel(int level) {
         this.level = level;
+        return this;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Character setUser(User user) {
+        this.user = user;
         return this;
     }
 }

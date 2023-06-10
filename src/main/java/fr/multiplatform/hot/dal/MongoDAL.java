@@ -7,16 +7,24 @@ import jakarta.inject.Inject;
 import org.bson.Document;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
+import java.lang.reflect.ParameterizedType;
+
 @ApplicationScoped
-public abstract class MongoDAL {
+public abstract class MongoDAL<T> {
 
 	@ConfigProperty(name = "mongo.db.name")
 	private String databaseName;
 
-	@Inject
-	private MongoClient mongoClient;
+	private final Class<T> clazz;
 
-	public <T> MongoCollection<T> getCollection(Class<T> clazz) {
+	public MongoDAL(Class<T> clazz) {
+		this.clazz = clazz;
+	}
+
+	@Inject
+	protected MongoClient mongoClient;
+
+	public MongoCollection<T> getCollection() {
 		return mongoClient.getDatabase(databaseName).getCollection(clazz.getName(), clazz);
 	}
 }
