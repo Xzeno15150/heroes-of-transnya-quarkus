@@ -1,8 +1,10 @@
 package fr.multiplatform.hot.entities.skill;
 
+import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
 
 public class Skill {
+    @BsonId
     private ObjectId id;
     private String name;
     private String description;
