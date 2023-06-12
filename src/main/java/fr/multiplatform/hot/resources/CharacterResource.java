@@ -43,7 +43,7 @@ public class CharacterResource extends UserJWTResource {
         return characterMapper.toResource(character);
     }
     @GET
-    @RolesAllowed({ Role.Names.ROLE_USER })
+    @RolesAllowed({ Role.Names.ROLE_USER, Role.Names.ROLE_ADMIN })
     @Produces(MediaType.APPLICATION_JSON)
     public List<CharacterResponse> getCharacters(@Context SecurityContext context){
         if(!context.getUserPrincipal().getName().equals(jwt.getName())){
