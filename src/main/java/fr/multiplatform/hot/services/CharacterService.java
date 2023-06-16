@@ -28,5 +28,4 @@ public class CharacterService extends MongoDAL<Character> {
     public List<Character> findAllOfUser(User user){
         return getCollection().find(eq("user.email", user.getEmail())).into(new ArrayList<>());
     }
-
 }
