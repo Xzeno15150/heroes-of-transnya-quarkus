@@ -1,14 +1,18 @@
 package fr.multiplatform.hot.resources.dtos.party;
 
 import fr.multiplatform.hot.resources.dtos.character.CharacterPartialRequest;
+import jakarta.annotation.Nonnull;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PartyRequest {
     private String id;
-    private String name;
+    @Nonnull
+    private String name = "";
+    @Nonnull
     private List<CharacterPartialRequest> characters = new ArrayList<>();
+    @Nonnull
     public String getName() {
         return name;
     }
@@ -18,6 +22,7 @@ public class PartyRequest {
         return this;
     }
 
+    @Nonnull
     public List<CharacterPartialRequest> getCharacters() {
         return characters;
     }
@@ -27,6 +32,7 @@ public class PartyRequest {
         return this;
     }
 
+    @Nonnull
     public String getId() {
         return id;
     }

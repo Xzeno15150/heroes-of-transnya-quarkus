@@ -8,7 +8,6 @@ import org.eclipse.microprofile.jwt.Claim;
 import org.eclipse.microprofile.jwt.Claims;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 @RequestScoped
