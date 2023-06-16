@@ -14,12 +14,12 @@ public abstract class MongoDAL<T> {
 
 	private final Class<T> clazz;
 
+	@Inject
+	protected MongoClient mongoClient;
+
 	public MongoDAL(Class<T> clazz) {
 		this.clazz = clazz;
 	}
-
-	@Inject
-	protected MongoClient mongoClient;
 
 	public MongoCollection<T> getCollection() {
 		return mongoClient.getDatabase(databaseName).getCollection(clazz.getSimpleName(), clazz);
