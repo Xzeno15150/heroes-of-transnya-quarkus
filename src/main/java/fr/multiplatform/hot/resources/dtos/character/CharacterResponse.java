@@ -1,18 +1,17 @@
-package fr.multiplatform.hot.entities.character;
+package fr.multiplatform.hot.resources.dtos.character;
 
 import fr.multiplatform.hot.entities.HealthPoint;
+import fr.multiplatform.hot.entities.character.Character;
 import fr.multiplatform.hot.entities.item.ItemPartial;
 import fr.multiplatform.hot.entities.party.PartyPartial;
 import fr.multiplatform.hot.entities.skill.SkillPartial;
 import fr.multiplatform.hot.entities.user.User;
-import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
 
 import java.util.List;
 
-public class Character {
-    @BsonId
-    private ObjectId id;
+public class CharacterResponse {
+    private String id;
     private String name;
     private String element;
     private String imagePath;
@@ -23,33 +22,11 @@ public class Character {
     private User user;
     private int level = 1;
 
-    public Character() {
-    }
-
-    public Character(String name, String element, String imagePath, HealthPoint healthPoint, List<SkillPartial> skills, List<ItemPartial> items, PartyPartial party) {
-        this.name = name;
-        this.element = element;
-        this.imagePath = imagePath;
-        this.healthPoint = healthPoint;
-        this.skills = skills;
-        this.items = items;
-        this.party = party;
-    }
-    public Character(ObjectId id, String name, String element, String imagePath, HealthPoint healthPoint, List<SkillPartial> skills, List<ItemPartial> items, PartyPartial party) {
-        this.id = id;
-        this.name = name;
-        this.element = element;
-        this.imagePath = imagePath;
-        this.healthPoint = healthPoint;
-        this.skills = skills;
-        this.items = items;
-        this.party = party;
-    }
-    public ObjectId getId() {
+    public String getId() {
         return id;
     }
 
-    public Character setId(ObjectId id) {
+    public CharacterResponse setId(String id) {
         this.id = id;
         return this;
     }
@@ -58,7 +35,7 @@ public class Character {
         return name;
     }
 
-    public Character setName(String name) {
+    public CharacterResponse setName(String name) {
         this.name = name;
         return this;
     }
@@ -67,7 +44,7 @@ public class Character {
         return element;
     }
 
-    public Character setElement(String element) {
+    public CharacterResponse setElement(String element) {
         this.element = element;
         return this;
     }
@@ -76,7 +53,7 @@ public class Character {
         return imagePath;
     }
 
-    public Character setImagePath(String imagePath) {
+    public CharacterResponse setImagePath(String imagePath) {
         this.imagePath = imagePath;
         return this;
     }
@@ -85,7 +62,7 @@ public class Character {
         return healthPoint;
     }
 
-    public Character setHealthPoint(HealthPoint healthPoint) {
+    public CharacterResponse setHealthPoint(HealthPoint healthPoint) {
         this.healthPoint = healthPoint;
         return this;
     }
@@ -94,7 +71,7 @@ public class Character {
         return skills;
     }
 
-    public Character setSkills(List<SkillPartial> skills) {
+    public CharacterResponse setSkills(List<SkillPartial> skills) {
         this.skills = skills;
         return this;
     }
@@ -103,7 +80,7 @@ public class Character {
         return items;
     }
 
-    public Character setItems(List<ItemPartial> items) {
+    public CharacterResponse setItems(List<ItemPartial> items) {
         this.items = items;
         return this;
     }
@@ -112,7 +89,7 @@ public class Character {
         return party;
     }
 
-    public Character setParty(PartyPartial party) {
+    public CharacterResponse setParty(PartyPartial party) {
         this.party = party;
         return this;
     }
@@ -121,7 +98,7 @@ public class Character {
         return level;
     }
 
-    public Character setLevel(int level) {
+    public CharacterResponse setLevel(int level) {
         this.level = level;
         return this;
     }
@@ -130,7 +107,7 @@ public class Character {
         return user;
     }
 
-    public Character setUser(User user) {
+    public CharacterResponse setUser(User user) {
         this.user = user;
         return this;
     }
