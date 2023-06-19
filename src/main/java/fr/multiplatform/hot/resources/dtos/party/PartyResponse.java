@@ -1,11 +1,9 @@
 package fr.multiplatform.hot.resources.dtos.party;
 
-import fr.multiplatform.hot.entities.party.Party;
 import fr.multiplatform.hot.entities.user.User;
 import fr.multiplatform.hot.resources.dtos.character.CharacterPartialResponse;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class PartyResponse {
 
