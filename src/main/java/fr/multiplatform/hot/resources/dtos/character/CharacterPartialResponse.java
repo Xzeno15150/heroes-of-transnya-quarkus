@@ -1,6 +1,5 @@
 package fr.multiplatform.hot.resources.dtos.character;
 
-import fr.multiplatform.hot.entities.character.CharacterPartial;
 import fr.multiplatform.hot.entities.user.User;
 
 public class CharacterPartialResponse {
