@@ -16,6 +16,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.SecurityContext;
 import org.eclipse.microprofile.jwt.JsonWebToken;
+import org.jboss.resteasy.reactive.RestPath;
 import org.mapstruct.Context;
 
 import java.util.List;
@@ -58,12 +59,13 @@ public class CharacterResource extends UserJWTResource {
     }
 
     @DELETE
+    @Path("/{id}")
     @RolesAllowed({Role.Names.ROLE_USER, Role.Names.ROLE_ADMIN})
     @Produces(MediaType.APPLICATION_JSON)
-    public DeleteResponse deleteCharacter(DeleteRequest request){
+    public DeleteResponse deleteCharacter(@RestPath String id){
         return (new DeleteResponse())
                 .setDeleteResult(characterService.deleteCharacter(
-                        objectIdMapper.toObjectId(request.getId())
+                        objectIdMapper.toObjectId(id)
                 ))
         ;
     }
