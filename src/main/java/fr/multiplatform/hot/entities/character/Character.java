@@ -9,6 +9,7 @@ import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Character {
     @BsonId
@@ -133,5 +134,18 @@ public class Character {
     public Character setUser(User user) {
         this.user = user;
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Character character = (Character) o;
+        return Objects.equals(id, character.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
