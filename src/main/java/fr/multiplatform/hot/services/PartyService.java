@@ -1,6 +1,7 @@
 package fr.multiplatform.hot.services;
 
 import com.mongodb.client.model.Updates;
+import com.mongodb.client.result.DeleteResult;
 import fr.multiplatform.hot.dal.MongoDAL;
 import fr.multiplatform.hot.entities.character.CharacterPartial;
 import fr.multiplatform.hot.entities.party.Party;
@@ -50,5 +51,9 @@ public class PartyService extends MongoDAL<Party> {
 					eq("owner.email", party.getOwner().getEmail())
 			), updates);
 		return party;
+	}
+
+	public DeleteResult deleteParty(ObjectId id){
+		return getCollection().deleteOne(eq("_id", id));
 	}
 }
