@@ -28,11 +28,15 @@ To create a party, use POST method and pass the jwt you got from /login
 When you get parties, you've only access to parties you've created.
 
 
-### /party/{id}
+#### /party/{id}
 
 * PUT
 
 This endpoint allows you to modify a specific party. You have to pass the jwt you got from /login to authenticate you
+
+* DELETE
+
+This endpoint allows you to delete a specific party. You have to pass the jwt you got from /login to authenticate you
 
 ### /character
 
@@ -43,11 +47,15 @@ This endpoint allows users to create and get characters.
 To create a character, use POST method and pass the jwt you got from /login
 When you get characters, you've only access to characters you've created.
 
-#### /character/{id}
+##### /character/{id}
 
 * DELETE
 
 This endpoint allows you to delete a specific character. You have to pass the jwt you got from /login to authenticate you
+
+* PUT
+
+This endpoint allows you to modify a specific character. You have to pass the jwt you got from /login to authenticate you
 
 ## Running the application in dev mode
 
