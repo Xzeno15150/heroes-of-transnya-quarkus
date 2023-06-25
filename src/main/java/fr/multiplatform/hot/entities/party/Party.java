@@ -7,6 +7,7 @@ import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Party {
     @BsonId
@@ -49,5 +50,18 @@ public class Party {
     public Party setName(String name) {
         this.name = name;
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Party party = (Party) o;
+        return Objects.equals(id, party.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
