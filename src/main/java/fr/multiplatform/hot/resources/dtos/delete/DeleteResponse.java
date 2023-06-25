@@ -5,7 +5,7 @@ import com.mongodb.client.result.DeleteResult;
 
 public class DeleteResponse {
     private DeleteResult deleteResult;
-
+  
     public DeleteResponse() {
     }
 
@@ -21,5 +21,5 @@ public class DeleteResponse {
         this.deleteResult = deleteResult;
         return this;
     }
-
 }
+

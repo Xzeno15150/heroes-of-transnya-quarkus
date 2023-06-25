@@ -10,6 +10,53 @@ Heroes of Transnya is a TableTop Roleplay Game aimed towards beginners, making c
 
 This repository contains the back end for a mobile app. It uses NoSQL and MongoDB to store the data, and Quarkus to give access to it. 
 
+## Endpoints
+
+### /login
+
+* POST
+
+To authenticate you, you can use this endpoint. Pass *email* and *password* fields to get a jwt and then, to use the api.
+
+### /party
+
+* GET
+* POST
+
+This endpoint allows users to create and get parties.
+To create a party, use POST method and pass the jwt you got from /login
+When you get parties, you've only access to parties you've created.
+
+
+#### /party/{id}
+
+* PUT
+
+This endpoint allows you to modify a specific party. You have to pass the jwt you got from /login to authenticate you
+
+* DELETE
+
+This endpoint allows you to delete a specific party. You have to pass the jwt you got from /login to authenticate you
+
+### /character
+
+* GET
+* POST
+
+This endpoint allows users to create and get characters.
+To create a character, use POST method and pass the jwt you got from /login
+When you get characters, you've only access to characters you've created.
+
+##### /character/{id}
+
+* DELETE
+
+This endpoint allows you to delete a specific character. You have to pass the jwt you got from /login to authenticate you
+
+* PUT
+
+This endpoint allows you to modify a specific character. You have to pass the jwt you got from /login to authenticate you
+
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:

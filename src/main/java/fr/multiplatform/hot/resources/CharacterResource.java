@@ -6,9 +6,12 @@ import fr.multiplatform.hot.entities.party.Party;
 import fr.multiplatform.hot.exceptions.CharacterNotFoundException;
 import fr.multiplatform.hot.exceptions.PartyNotFoundException;
 import fr.multiplatform.hot.resources.common.UserJWTResource;
+import fr.multiplatform.hot.resources.dtos.delete.DeleteRequest;
+import fr.multiplatform.hot.resources.dtos.delete.DeleteResponse;
 import fr.multiplatform.hot.resources.dtos.character.CharacterRequest;
 import fr.multiplatform.hot.resources.dtos.character.CharacterResponse;
 import fr.multiplatform.hot.resources.mappers.CharacterMapper;
+import fr.multiplatform.hot.resources.mappers.common.ObjectIdMapper;
 import fr.multiplatform.hot.services.CharacterService;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.security.RolesAllowed;
@@ -20,7 +23,6 @@ import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.jboss.resteasy.reactive.RestPath;
 import org.mapstruct.Context;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,6 +35,9 @@ public class CharacterResource extends UserJWTResource {
     CharacterMapper characterMapper;
     @Inject
     CharacterService characterService;
+
+    @Inject
+    ObjectIdMapper objectIdMapper;
 
 
     @POST
@@ -72,6 +77,15 @@ public class CharacterResource extends UserJWTResource {
         return characterMapper.toResource(character);
     }
 
-
-
+    @DELETE
+    @Path("/{id}")
+    @RolesAllowed({Role.Names.ROLE_USER, Role.Names.ROLE_ADMIN})
+    @Produces(MediaType.APPLICATION_JSON)
+    public DeleteResponse deleteCharacter(@RestPath String id){
+        return (new DeleteResponse())
+                .setDeleteResult(characterService.deleteCharacter(
+                        objectIdMapper.toObjectId(id)
+                ))
+        ;
+    }
 }
